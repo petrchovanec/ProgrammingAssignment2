@@ -13,6 +13,7 @@ makeCacheMatrix <- function(x = matrix()) {
   getMatrix <- function() x
   setInvMatrix <- function(invMat) inverseMatrix <<- invMat
   getInvMatrix <- function() inverseMatrix
+  # here is the list of functions
   list(setMatrix = setMatrix, getMatrix = getMatrix,
        setInvMatrix = setInvMatrix, getInvMatrix = getInvMatrix)
 }
@@ -27,7 +28,10 @@ cacheSolve <- function(x, ...) {
     return(invMat)
   }
   mat <- x$getMatrix()
+  # solves an inverse matrix
   invMat <- solve(mat)
+  #set an inverse matrix into the namespace
   x$setInvMatrix(invMat)
+  #returns an inverse matrix
   invMat
 }
